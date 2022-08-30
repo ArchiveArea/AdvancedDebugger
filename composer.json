@@ -1,0 +1,57 @@
+{
+    "name": "nhanaz/advanceddebuger",
+    "type": "project",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.0",
+        "pocketmine/pocketmine-mp": "4.8.0",
+        "ifera-mc/configupdater": "master",
+        "ifera-mc/updatenotifier": "master"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "1.7.0",
+        "friendsofphp/php-cs-fixer": "v3.10.0"
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "ifera-mc/configupdater",
+                "version": "master",
+                "autoload": {
+                    "classmap": [
+                        "src/"
+                    ]
+                },
+                "source": {
+                    "url": "https://github.com/ifera-mc/ConfigUpdater",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ifera-mc/updatenotifier",
+                "version": "master",
+                "autoload": {
+                    "classmap": [
+                        "src/"
+                    ]
+                },
+                "source": {
+                    "url": "https://github.com/ifera-mc/UpdateNotifier",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "src"
+        ]
+    }
+}

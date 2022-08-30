@@ -1,0 +1,10 @@
+---
+# Available languages: eng and vie.
+language: "eng"
+
+# If the value of this field is set to false. No logs will be logged.
+debugMode: true
+
+# Please do not edit the value of this field.
+configVersion: "0.0.1"
+...
