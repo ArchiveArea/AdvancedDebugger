@@ -6,14 +6,14 @@ namespace NhanAZ\AdvancedDebuger;
 
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\BlockBurnEvent;
-// TODO: use pocketmine\event\block\BaseBlockChangeEvent;
+use pocketmine\event\block\BlockFormEvent;
 use pocketmine\event\Event;
 use pocketmine\event\Listener;
 use function end;
 use function explode;
 use function implode;
-// TODO: use pocketmine\event\block\BlockEvent;
-// TODO: use pocketmine\event\block\BlockFormEvent;
+// TODO: use pocketmine\event\block\BaseBlockChangeEvent; [abstract class]
+// TODO: use pocketmine\event\block\BlockEvent; [abstract class]
 // TODO: use pocketmine\event\block\BlockGrowEvent;
 // TODO: use pocketmine\event\block\BlockItemPickupEvent;
 // TODO: use pocketmine\event\block\BlockMeltEvent;
@@ -147,6 +147,7 @@ class EventListener implements Listener {
 		return end($names);
 	}
 
+
 	/**
 	 * @handleCancelled true
 	 */
@@ -173,5 +174,16 @@ class EventListener implements Listener {
 		$blockPosition = $block->getPosition();
 		$causingBlock = $event->getCausingBlock();
 		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | CausingBlock: $causingBlock");
+	}
+
+	/**
+	 * @handleCancelled true
+	 */
+	public function onBlockForm(BlockFormEvent $event) : void {
+		$eventName = $this->getEventName($event);
+		$block = $event->getBlock();
+		$blockPosition = $block->getPosition();
+		$newState = $event->getNewState();
+		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | NewState: $newState");
 	}
 }
