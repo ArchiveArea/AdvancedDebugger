@@ -14,8 +14,11 @@ use pocketmine\utils\Terminal;
 use pocketmine\utils\Timezone;
 use Webmozart\PathUtil\Path;
 use function boolval;
+use function file_exists;
 use function intval;
+use function mkdir;
 use function strval;
+use function var_dump;
 use const DIRECTORY_SEPARATOR;
 
 class Main extends PluginBase {
@@ -37,11 +40,20 @@ class Main extends PluginBase {
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
 	}
 
-	private function getMainLogger() : MainLogger {
+	private function getMainLogger(string $eventName) : MainLogger {
+		if ($this->getConfig()->get("logFile") == "single") {
+			return new MainLogger(Path::join($this->getDataFolder(), "logs.log"), Terminal::hasFormattingCodes(), "Server", new DateTimeZone(Timezone::get()), boolval($this->getConfig()->get("debugMode")));
+		}
+		if ($this->getConfig()->get("logFile") == "separate") {
+			if (!file_exists($this->getDataFolder() . "logs")) {
+				@mkdir($this->getDataFolder() . "logs");
+			}
+			return new MainLogger(Path::join($this->getDataFolder(), "logs" . DIRECTORY_SEPARATOR . "$eventName.log"), Terminal::hasFormattingCodes(), "Server", new DateTimeZone(Timezone::get()), boolval($this->getConfig()->get("debugMode")));
+		}
 		return new MainLogger(Path::join($this->getDataFolder(), "logs.log"), Terminal::hasFormattingCodes(), "Server", new DateTimeZone(Timezone::get()), boolval($this->getConfig()->get("debugMode")));
 	}
 
-	public function debug(string $message) : void {
-		$this->getMainLogger()->debug($message);
+	public function debug(string $eventName, string $message) : void {
+		$this->getMainLogger($eventName)->debug($message);
 	}
 }

@@ -147,7 +147,6 @@ class EventListener implements Listener {
 		return end($names);
 	}
 
-
 	/**
 	 * @handleCancelled true
 	 */
@@ -162,7 +161,7 @@ class EventListener implements Listener {
 		$player = $event->getPlayer();
 		$playerName = $player->getName();
 		$xpDropAmount = $event->getXpDropAmount();
-		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | Drops: [$drops] | InstaBreak: $instaBreak | Item: $item | Player: $player [$playerName] | XpDropAmount: $xpDropAmount");
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | Drops: [$drops] | InstaBreak: $instaBreak | Item: $item | Player: $player [$playerName] | XpDropAmount: $xpDropAmount");
 	}
 
 	/**
@@ -173,7 +172,7 @@ class EventListener implements Listener {
 		$block = $event->getBlock();
 		$blockPosition = $block->getPosition();
 		$causingBlock = $event->getCausingBlock();
-		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | CausingBlock: $causingBlock");
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | CausingBlock: $causingBlock");
 	}
 
 	/**
@@ -184,7 +183,7 @@ class EventListener implements Listener {
 		$block = $event->getBlock();
 		$blockPosition = $block->getPosition();
 		$newState = $event->getNewState();
-		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | NewState: $newState");
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | NewState: $newState");
 	}
 
 	/**
@@ -195,7 +194,7 @@ class EventListener implements Listener {
 		$block = $event->getBlock();
 		$blockPosition = $block->getPosition();
 		$newState = $event->getNewState();
-		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | NewState: $newState");
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | NewState: $newState");
 	}
 
 	/**
@@ -208,7 +207,7 @@ class EventListener implements Listener {
 		// TODO: $inventory = $event->getInventory();
 		$item = $event->getItem();
 		$origin = $event->getOrigin();
-		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | Item: $item | Origin: $origin");
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | Item: $item | Origin: $origin");
 	}
 
 	/**
@@ -219,7 +218,7 @@ class EventListener implements Listener {
 		$block = $event->getBlock();
 		$blockPosition = $block->getPosition();
 		$newState = $event->getNewState();
-		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | NewState: $newState");
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | NewState: $newState");
 	}
 
 	/**
@@ -234,7 +233,7 @@ class EventListener implements Listener {
 		$item = $event->getItem();
 		$player = $event->getPlayer();
 		$playerName = $player->getName();
-		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | BlockAgainst: [$blockAgainst] | BlockReplaced: $blockReplaced | Item: $item | Player: $player [$playerName]");
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | BlockAgainst: [$blockAgainst] | BlockReplaced: $blockReplaced | Item: $item | Player: $player [$playerName]");
 	}
 
 	/**
@@ -246,7 +245,7 @@ class EventListener implements Listener {
 		$blockPosition = $block->getPosition();
 		$newState = $event->getNewState();
 		$source = $event->getSource();
-		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | NewState: $newState | Source: $source");
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | NewState: $newState | Source: $source");
 	}
 
 	/**
@@ -257,6 +256,6 @@ class EventListener implements Listener {
 		$block = $event->getBlock();
 		$blockPosition = $block->getPosition();
 		$to = $event->getTo();
-		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | To: $to");
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | To: $to");
 	}
 }

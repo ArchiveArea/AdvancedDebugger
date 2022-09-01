@@ -5,6 +5,10 @@ language: "eng"
 # If the value of this field is set to false. No logs will be logged.
 debugMode: true
 
+# logFile: "single" > All logs will be logged in a single file.
+# logFile: "separate" > Events logs will be logged in a separate files.
+logFile: "single"
+
 # Please do not edit the value of this field.
 configVersion: "0.0.1"
 ...
