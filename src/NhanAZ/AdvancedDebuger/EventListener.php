@@ -16,6 +16,7 @@ use pocketmine\event\block\BlockTeleportEvent;
 use pocketmine\event\block\BlockUpdateEvent;
 use pocketmine\event\block\BrewingFuelUseEvent;
 use pocketmine\event\block\BrewItemEvent;
+use pocketmine\event\block\ChestPairEvent;
 use pocketmine\event\Event;
 use pocketmine\event\Listener;
 use function end;
@@ -23,7 +24,6 @@ use function explode;
 use function implode;
 // TODO: use pocketmine\event\block\BaseBlockChangeEvent; [abstract class]
 // TODO: use pocketmine\event\block\BlockEvent; [abstract class]
-// TODO: use pocketmine\event\block\ChestPairEvent;
 // TODO: use pocketmine\event\block\LeavesDecayEvent;
 // TODO: use pocketmine\event\block\SignChangeEvent;
 // TODO: use pocketmine\event\block\StructureGrowEvent;
@@ -294,5 +294,17 @@ class EventListener implements Listener {
 		$result = $event->getResult();
 		$slot = $event->getSlot();
 		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | BrewingStand: $brewingStand | Input: $input | Recipe: $recipe | Result: $result | Slot: $slot");
+	}
+
+	/**
+	 * @handleCancelled true
+	 */
+	public function onChestPair(ChestPairEvent $event) : void {
+		$eventName = $this->getEventName($event);
+		$left = $event->getLeft();
+		$leftPosition = $left->getPosition();
+		$right = $event->getRight();
+		$rightPosition = $right->getPosition();
+		$this->getMain()->debug($eventName, "EventName: $eventName | Left: $left [$leftPosition] | Right: $right [$rightPosition]");
 	}
 }
