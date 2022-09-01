@@ -276,9 +276,9 @@ class EventListener implements Listener {
 		$eventName = $this->getEventName($event);
 		$block = $event->getBlock();
 		$blockPosition = $block->getPosition();
-		$brewingStand = $event->getBrewingStand();
+		// TODO: $brewingStand = $event->getBrewingStand();
 		$fuelTime = $event->getFuelTime();
-		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | BrewingStand: $brewingStand | FuelTime: $fuelTime");
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | FuelTime: $fuelTime");
 	}
 
 	/**
@@ -288,12 +288,12 @@ class EventListener implements Listener {
 		$eventName = $this->getEventName($event);
 		$block = $event->getBlock();
 		$blockPosition = $block->getPosition();
-		$brewingStand = $event->getBrewingStand();
+		// TODO: $brewingStand = $event->getBrewingStand();
 		$input = $event->getInput();
-		$recipe = $event->getRecipe();
+		// TODO: $recipe = $event->getRecipe();
 		$result = $event->getResult();
 		$slot = $event->getSlot();
-		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | BrewingStand: $brewingStand | Input: $input | Recipe: $recipe | Result: $result | Slot: $slot");
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | Input: $input | Result: $result | Slot: $slot");
 	}
 
 	/**
