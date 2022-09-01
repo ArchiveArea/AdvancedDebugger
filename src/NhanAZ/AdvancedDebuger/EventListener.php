@@ -10,6 +10,7 @@ use pocketmine\event\block\BlockFormEvent;
 use pocketmine\event\block\BlockGrowEvent;
 use pocketmine\event\block\BlockItemPickupEvent;
 use pocketmine\event\block\BlockMeltEvent;
+use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\Event;
 use pocketmine\event\Listener;
 use function end;
@@ -17,7 +18,6 @@ use function explode;
 use function implode;
 // TODO: use pocketmine\event\block\BaseBlockChangeEvent; [abstract class]
 // TODO: use pocketmine\event\block\BlockEvent; [abstract class]
-// TODO: use pocketmine\event\block\BlockPlaceEvent;
 // TODO: use pocketmine\event\block\BlockSpreadEvent;
 // TODO: use pocketmine\event\block\BlockTeleportEvent;
 // TODO: use pocketmine\event\block\BlockUpdateEvent;
@@ -220,5 +220,20 @@ class EventListener implements Listener {
 		$blockPosition = $block->getPosition();
 		$newState = $event->getNewState();
 		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | NewState: $newState");
+	}
+
+	/**
+	 * @handleCancelled true
+	 */
+	public function onBlockPlace(BlockPlaceEvent $event) : void {
+		$eventName = $this->getEventName($event);
+		$block = $event->getBlock();
+		$blockPosition = $block->getPosition();
+		$blockAgainst = $event->getBlockAgainst();
+		$blockReplaced = $event->getBlockReplaced();
+		$item = $event->getItem();
+		$player = $event->getPlayer();
+		$playerName = $player->getName();
+		$this->getMain()->debug("EventName: $eventName | Block: $block [$blockPosition] | BlockAgainst: [$blockAgainst] | BlockReplaced: $blockReplaced | Item: $item | Player: $player [$playerName]");
 	}
 }
