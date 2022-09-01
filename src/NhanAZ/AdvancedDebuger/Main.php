@@ -18,7 +18,6 @@ use function file_exists;
 use function intval;
 use function mkdir;
 use function strval;
-use function var_dump;
 use const DIRECTORY_SEPARATOR;
 
 class Main extends PluginBase {

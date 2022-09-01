@@ -1,14 +1,14 @@
 ---
-# Available languages: eng and vie.
+# Available languages: eng (English) and vie (Vietnamese).
 language: "eng"
 
-# If the value of this field is set to false. No logs will be logged.
+# debugMode: false > No logs will be logged.
 debugMode: true
 
 # logFile: "single" > All logs will be logged in a single file.
 # logFile: "separate" > Events logs will be logged in a separate files.
 logFile: "single"
 
-# Please do not edit the value of this field.
+# The default configuration will be used if this field is modified.
 configVersion: "0.0.1"
 ...
