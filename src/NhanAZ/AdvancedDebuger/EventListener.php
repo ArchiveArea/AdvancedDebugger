@@ -13,6 +13,7 @@ use pocketmine\event\block\BlockMeltEvent;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\block\BlockSpreadEvent;
 use pocketmine\event\block\BlockTeleportEvent;
+use pocketmine\event\block\BlockUpdateEvent;
 use pocketmine\event\Event;
 use pocketmine\event\Listener;
 use function end;
@@ -20,7 +21,6 @@ use function explode;
 use function implode;
 // TODO: use pocketmine\event\block\BaseBlockChangeEvent; [abstract class]
 // TODO: use pocketmine\event\block\BlockEvent; [abstract class]
-// TODO: use pocketmine\event\block\BlockUpdateEvent;
 // TODO: use pocketmine\event\block\BrewingFuelUseEvent;
 // TODO: use pocketmine\event\block\BrewItemEvent;
 // TODO: use pocketmine\event\block\ChestPairEvent;
@@ -257,5 +257,15 @@ class EventListener implements Listener {
 		$blockPosition = $block->getPosition();
 		$to = $event->getTo();
 		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | To: $to");
+	}
+
+	/**
+	 * @handleCancelled true
+	 */
+	public function onBlockUpdate(BlockUpdateEvent $event) : void {
+		$eventName = $this->getEventName($event);
+		$block = $event->getBlock();
+		$blockPosition = $block->getPosition();
+		$this->getMain()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition]");
 	}
 }
