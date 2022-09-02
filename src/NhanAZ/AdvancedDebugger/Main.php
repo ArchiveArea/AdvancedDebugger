@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NhanAZ\AdvancedDebuger;
+namespace NhanAZ\AdvancedDebugger;
 
 use DateTimeZone;
 use JackMD\ConfigUpdater\ConfigUpdater;

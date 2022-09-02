@@ -1,2 +1,2 @@
-# AdvancedDebuger
-AdvancedDebuger for PocketMine-MP
+# AdvancedDebugger
+AdvancedDebugger for PocketMine-MP
