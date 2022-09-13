@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NhanAZ\AdvancedDebugger\event\block;
 
-use NhanAZ\AdvancedDebugger\Main;
+use NhanAZ\AdvancedDebugger\AdvancedDebugger;
 use pocketmine\event\block\BlockTeleportEvent;
 use pocketmine\event\Listener;
 
@@ -14,10 +14,10 @@ class BlockTeleportEventDebugger implements Listener {
 	 * @handleCancelled true
 	 */
 	public function onBlockTeleport(BlockTeleportEvent $event) : void {
-		$eventName = Main::getInstance()->getEventName($event);
+		$eventName = AdvancedDebugger::getInstance()->getEventName($event);
 		$block = $event->getBlock();
 		$blockPosition = $block->getPosition();
 		$to = $event->getTo();
-		Main::getInstance()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | To: $to");
+		AdvancedDebugger::getInstance()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | To: $to");
 	}
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NhanAZ\AdvancedDebugger\event\block;
 
-use NhanAZ\AdvancedDebugger\Main;
+use NhanAZ\AdvancedDebugger\AdvancedDebugger;
 use pocketmine\event\block\BrewItemEvent;
 use pocketmine\event\Listener;
 
@@ -14,7 +14,7 @@ class BrewItemEventDebugger implements Listener {
 	 * @handleCancelled true
 	 */
 	public function onBrewItem(BrewItemEvent $event) : void {
-		$eventName = Main::getInstance()->getEventName($event);
+		$eventName = AdvancedDebugger::getInstance()->getEventName($event);
 		$block = $event->getBlock();
 		$blockPosition = $block->getPosition();
 		// TODO: $brewingStand = $event->getBrewingStand();
@@ -22,6 +22,6 @@ class BrewItemEventDebugger implements Listener {
 		// TODO: $recipe = $event->getRecipe();
 		$result = $event->getResult();
 		$slot = $event->getSlot();
-		Main::getInstance()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | Input: $input | Result: $result | Slot: $slot");
+		AdvancedDebugger::getInstance()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | Input: $input | Result: $result | Slot: $slot");
 	}
 }

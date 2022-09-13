@@ -38,7 +38,7 @@ use function mkdir;
 use function strval;
 use const DIRECTORY_SEPARATOR;
 
-class Main extends PluginBase {
+class AdvancedDebugger extends PluginBase {
 	use SingletonTrait;
 
 	private function getLanguage() : Language {

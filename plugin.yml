@@ -1,6 +1,6 @@
 ---
 name: AdvancedDebugger
 version: 0.0.1
-main: NhanAZ\AdvancedDebugger\Main
+main: NhanAZ\AdvancedDebugger\AdvancedDebugger
 api: 4.0.0
 ...

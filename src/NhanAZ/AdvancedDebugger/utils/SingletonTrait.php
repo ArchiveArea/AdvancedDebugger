@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace NhanAZ\AdvancedDebugger\utils;
 
-use NhanAZ\AdvancedDebugger\Main;
+use NhanAZ\AdvancedDebugger\AdvancedDebugger;
 
 trait SingletonTrait {
 
-	public static Main $instance;
+	public static AdvancedDebugger $instance;
 
-	public static function setInstance(Main $instance) : void {
+	public static function setInstance(AdvancedDebugger $instance) : void {
 		self::$instance = $instance;
 	}
 
-	public static function getInstance() : Main {
+	public static function getInstance() : AdvancedDebugger {
 		return self::$instance;
 	}
 }

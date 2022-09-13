@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NhanAZ\AdvancedDebugger\event\block;
 
-use NhanAZ\AdvancedDebugger\Main;
+use NhanAZ\AdvancedDebugger\AdvancedDebugger;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\Listener;
 
@@ -14,7 +14,7 @@ class BlockPlaceEventDebugger implements Listener {
 	 * @handleCancelled true
 	 */
 	public function onBlockPlace(BlockPlaceEvent $event) : void {
-		$eventName = Main::getInstance()->getEventName($event);
+		$eventName = AdvancedDebugger::getInstance()->getEventName($event);
 		$block = $event->getBlock();
 		$blockPosition = $block->getPosition();
 		$blockAgainst = $event->getBlockAgainst();
@@ -22,6 +22,6 @@ class BlockPlaceEventDebugger implements Listener {
 		$item = $event->getItem();
 		$player = $event->getPlayer();
 		$playerName = $player->getName();
-		Main::getInstance()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | BlockAgainst: [$blockAgainst] | BlockReplaced: $blockReplaced | Item: $item | Player: $player [$playerName]");
+		AdvancedDebugger::getInstance()->debug($eventName, "EventName: $eventName | Block: $block [$blockPosition] | BlockAgainst: [$blockAgainst] | BlockReplaced: $blockReplaced | Item: $item | Player: $player [$playerName]");
 	}
 }
