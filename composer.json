@@ -5,7 +5,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^8.0",
-        "pocketmine/pocketmine-mp": "4.8.1",
+        "pocketmine/pocketmine-mp": "4.9.0",
         "ifera-mc/configupdater": "master",
         "ifera-mc/updatenotifier": "master"
     },
